@@ -4,11 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- * Relação entre a entidade Usuarios muitos pra 1
- */
 @Entity
 @Table(name = "servico")
 public class Servicos {
@@ -21,6 +20,10 @@ public class Servicos {
     private String formaCobranca; // Por serviço, Por Hora, Por Diaria
     private String valorServico; 
     private String formaRecebimento; // por Cartão Debito/Credito, Espécie, Pix ou Transferencia Bancária.
+
+    @ManyToOne
+    @JoinColumn(name =" usuario_id")
+    private Usuario usuario;
     
     public Servicos(int id, String tipoServico, String formaCobranca, String valorServico, String formaRecebimento) {
         this.id = id;

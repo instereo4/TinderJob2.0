@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.tinderjob.TinderJobCrud.InterfaceService.DadosPessoaisInterfServ;
 import com.tinderjob.TinderJobCrud.Model.DadosPessoais;
-import com.tinderjob.TinderJobCrud.Repository.DadosPessoaisRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,14 +1,17 @@
 package com.tinderjob.TinderJobCrud.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * Relação de 1 pra 1 entre a entidade Usuario
- */
+
 @Entity
 @Table(name = "endereco")
 public class Endereco {
@@ -23,6 +26,14 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String complemento;
+
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToMany
+    @JoinColumn(name = "dadosPessoais_id")
+    private List<DadosPessoais> dadosPessoais;
     
     public Endereco(int id, String cEP, String numeroCasa, String rua, String bairro, String cidade, String estado,
             String complemento) {

@@ -1,16 +1,18 @@
 package com.tinderjob.TinderJobCrud.Model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * Relação de 1 pra 1 entre a entidade Usuario
- */
+
 @Entity
 @Table(name = "dados_pessoais")
 public class DadosPessoais {
@@ -24,6 +26,13 @@ public class DadosPessoais {
     private Date dataNascimento;
     private String telefone2;
     private String email;
+
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToMany(mappedBy = "dadosPessoais")
+    private List<Endereco> enderecos;
 
     public DadosPessoais(int id, String nome, String genero, String telefone1, Date dataNascimento, String telefone2,
             String email) {
