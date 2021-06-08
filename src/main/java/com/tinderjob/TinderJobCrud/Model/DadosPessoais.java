@@ -20,7 +20,8 @@ public class DadosPessoais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nome;
+    private String firstName;
+    private String lastName;
     private String genero;
     private String telefone1;
     private Date dataNascimento;
@@ -34,10 +35,11 @@ public class DadosPessoais {
     @ManyToMany(mappedBy = "dadosPessoais")
     private List<Endereco> enderecos;
 
-    public DadosPessoais(int id, String nome, String genero, String telefone1, Date dataNascimento, String telefone2,
-            String email) {
+    public DadosPessoais(int id, String firstName, String lastName, String genero, String telefone1,
+            Date dataNascimento, String telefone2, String email) {
         this.id = id;
-        this.nome = nome;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.genero = genero;
         this.telefone1 = telefone1;
         this.dataNascimento = dataNascimento;
@@ -53,12 +55,20 @@ public class DadosPessoais {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getGenero() {
@@ -77,6 +87,14 @@ public class DadosPessoais {
         this.telefone1 = telefone1;
     }
 
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getTelefone2() {
         return telefone2;
     }
@@ -92,14 +110,7 @@ public class DadosPessoais {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }    
+ 
     
 
 }
